@@ -32,6 +32,7 @@
 		<button onclick="makeNewDiv()">Push value</button>
 		<button onclick="popItem()">Pop</button>
 		<button onclick="zap()">Zap values</button>
+		<button onclick="unique()">Unique</button>
 	
 		<div class="flex-container" id="target">
 			<div class="stack">row item 1</div>   
@@ -75,5 +76,21 @@
 		})
     }
 
+	function unique() {
+		let stackItems  = document.getElementsByClassName("stack");
+
+		let items ={};
+		let rlist= [];
+		for(let el of stackItems)  {
+			if(items[el.innerHTML]) {
+				rlist.push(el)
+			} else {
+				items[el.innerHTML] = 1
+			}
+		}
+		rlist.forEach( el => {
+			el.remove()
+		})
+	}
 </script>
 </html>	
