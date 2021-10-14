@@ -30,6 +30,8 @@
 	<p> Press the button to create an new element of type div and then add it to the container.
 		</p>
 		<button onclick="makeNewDiv()">Push value</button>
+		<button onclick="popItem()">Pop</button>
+		<button onclick="zap()">Zap values</button>
 	
 		<div class="flex-container" id="target">
 			<div class="stack">row item 1</div>   
@@ -50,5 +52,28 @@
 		document.getElementById('target').appendChild(element)
 		
 	}
+	
+	function popItem() {
+		let stackItems  = document.getElementsByClassName("stack");
+		if(stackItems.length > 0) {
+			stackItems[stackItems.length-1].remove();
+		}
+	}
+	
+    function zap() {
+        let stackItems  = document.getElementsByClassName("stack");
+		let rlist= [];
+		let inp = document.getElementById("form_input").value;
+		for(let el of stackItems)  {
+			if(el.innerHTML == inp) {
+				console.log(el)
+				rlist.push(el);
+			}
+		}
+		rlist.forEach( el => {
+			el.remove()
+		})
+    }
+
 </script>
 </html>	
